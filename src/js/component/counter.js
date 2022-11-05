@@ -1,20 +1,35 @@
 import React from "react";
+import reactDom from "react-dom";
+import propTypes from "prop-types";
 
-let listOfNumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-const Counter = () => {
+function Counter(props){
 
-    return <div className="container-fluid d-inline-flex bg-black mt-3 ms-3 me-3 ">
-                <div><i className="fa-regular fa-clock"></i></div>
-                <div className="eight text-white">6</div>
-                <div className="six text-white">5</div>
-                <div className="five text-white">4</div>
-                <div className="four text-white">3</div>
-                <div className="tree text-white">2</div>
-                <div className="two text-white">1</div>
-                <div className="one text-white">0</div>
+    return <div className="container-fluid">
+                <div className="row bg-black mt-3 ms-3 me-3">
+                    <div className="col-8 mx-auto d-inline-flex text-center">
+                        <div id="reloj"><i className="fa-regular fa-clock"></i></div>
+                        <div id="recuadros" className="text-white m-3 fw-bold">{props.digitSeven % 10}</div>
+                        <div id="recuadros" className="text-white m-3 fw-bold">{props.digitSix % 10}</div>
+                        <div id="recuadros" className="text-white m-3 fw-bold">{props.digitFive % 10}</div>
+                        <div id="recuadros" className="text-white m-3 fw-bold">{props.digitFour % 10}</div>
+                        <div id="recuadros" className="text-white m-3 fw-bold">{props.digitThree % 10}</div>
+                        <div id="recuadros" className="text-white m-3 fw-bold">{props.digitTwo % 10}</div>
+                        <div id="recuadros" className="text-white m-3 fw-bold">{props.digitOne % 10}</div>
+                    </div>
+                </div>
             </div>
 }
 
+Counter.prototype = {
+    digitSeven: propTypes.number,
+    digitSix: propTypes.number,
+    digitFive: propTypes.number,
+    digitFour: propTypes.number,
+    digitThree: propTypes.number,
+    digitTwo: propTypes.number,
+    digitOne: propTypes.number,
+}
+
+
 export default Counter 
-//setInterval(function () {element.innerHTML += "Hello"}, 1000);
